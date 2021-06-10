@@ -1,0 +1,11 @@
+<div id = "new_list">
+  <h1> New List </h1>
+
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.input :name %>
+    <%= f.association :movies, as: :movie %>
+    <%= f.submit 'Create list', :class => 'btn btn-success' %>
+
+    <div> <%= link_to "Back to list", lists_path, class: 'btn btn-primary' %> </div>
+  <% end %>
+</div>

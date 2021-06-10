@@ -1,0 +1,12 @@
+<div class="header">
+  <h4> Watch list </h3>
+  <%= link_to "Add list", new_list_path, class: 'btn btn-primary' %>
+</div>
+
+<h1> All our lists (<%= @lists.size %>)</h1>
+
+<div class = "lists">
+  <% @lists.each do |list| %>
+  <div> <%= link_to list.name, list_path(list) %> </div>
+  <% end %>
+</div>
