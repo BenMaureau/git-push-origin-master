@@ -1,20 +1,40 @@
-<h1> <%= @list.name %> </h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=center&w=1489&q=150)">
+  <div class = "container">
+    <h1> <%= @list.name %> </h1>
+  </div>
+</div>
 
 <div class = "bookmarks">
   <% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.movie.title %>
-  <%= bookmark.comment %>
-  <%= link_to "Remove", bookmark_path(bookmark), method: :delete, style: 'color:red;', data: { confirm: "Are you sure?" } %>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img  src=<%= bookmark.movie.poster_url %>>
+      </div>
+      <div class="flip-card-back">
+        <h2> <%= bookmark.movie.title %></h2>
+        <div>
+        <%= bookmark.movie.rating %>
+        <i class="fas fa-star"></i>
+        </div>
+        <div class = bookmark>
+          <p> <%= bookmark.comment %> </p>
+          <%= link_to "Remove", bookmark_path(bookmark), method: :delete, style: 'color:red; font-size: 12px;', data: { confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
 
+<div class = 'form'>
+  <h1> New Bookmark </h1>
 
-<h1> New Bookmark </h1>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit 'Create bookmark', :class => 'btn btn-success' %>
+    <% end %>
 
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit 'Create bookmark', :class => 'btn btn-success' %>
-  <% end %>
-
-<div> <%= link_to "Back to list", lists_path, class: 'btn btn-primary' %> </div>
+  <div> <%= link_to "Back to list", lists_path, class: 'btn btn-primary' %> </div>
+</div>

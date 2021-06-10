@@ -3,7 +3,7 @@
 
   <%= simple_form_for(@bookmark) do |f| %>
     <%= f.input :name %>
-
+    <%= f.association :movies, input_html: { class: 'select2' } %>
     <%= f.submit 'Create bookmark', :class => 'btn btn-success' %>
 
     <div> <%= link_to "Back to bookmark", lists_path, class: 'btn btn-primary' %> </div>

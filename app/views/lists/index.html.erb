@@ -1,12 +1,58 @@
-<div class="header">
-  <h4> Watch list </h3>
-  <%= link_to "Add list", new_list_path, class: 'btn btn-primary' %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aWVzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60);">
+  <div class="container">
+    <h1>Save your movies </h1>
+    <p>
+      <span id="banner-typed-text"></span>
+    </p>
+  </div>
 </div>
 
-<h1> All our lists (<%= @lists.size %>)</h1>
-
-<div class = "lists">
-  <% @lists.each do |list| %>
-  <div> <%= link_to list.name, list_path(list) %> </div>
-  <% end %>
+<div class = "container">
+  <div class = 'd-flex justify-content-between align-items-center'>
+    <h2> My lists (<%= @lists.size %>) </h2>
+    <%= link_to "Add list", new_list_path, class: 'btn btn-primary' %>
+  </div>
+  <div class = 'lists'>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+    <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80)">
+      <%= link_to list.name, list_path(list), class: 'category-name' %>
+    </div>
+    <% end %>
+  </div>
 </div>
