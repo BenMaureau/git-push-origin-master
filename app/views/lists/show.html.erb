@@ -8,18 +8,19 @@
   <% @list.bookmarks.each do |bookmark| %>
   <div class="flip-card">
     <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img  src=<%= bookmark.movie.poster_url %>>
-      </div>
-      <div class="flip-card-back">
+      <div class="flip-card-front" style="background-image: url(<%= bookmark.movie.poster_url %>)"></div>
+      <div class="flip-card-back" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(<%= bookmark.movie.poster_url %>)">
         <h2> <%= bookmark.movie.title %></h2>
         <div>
         <%= bookmark.movie.rating %>
         <i class="fas fa-star"></i>
         </div>
         <div class = bookmark>
-          <p> <%= bookmark.comment %> </p>
-          <%= link_to "Remove", bookmark_path(bookmark), method: :delete, style: 'color:red; font-size: 12px;', data: { confirm: "Are you sure?" } %>
+          <div>
+            <i class="fas fa-video"></i>
+            <%= bookmark.comment %>
+          </div>
+          <%= link_to "Remove", bookmark_path(bookmark), method: :delete, class: 'btn btn-danger', style: 'font-size: 12px;', data: { confirm: "Are you sure?" } %>
         </div>
       </div>
     </div>
