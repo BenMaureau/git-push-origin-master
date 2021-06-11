@@ -8,13 +8,17 @@
 require 'json'
 require 'open-uri'
 
-url = 'http://tmdb.lewagon.com/movie/top_rated'
-movies_serialized = URI.open(url).read
-movies = JSON.parse(movies_serialized)
+@current_page = 1
+439.times do
+  url = "http://tmdb.lewagon.com/movie/popular?=#{@current_page.to_s}"
+  movies_serialized = URI.open(url).read
+  movies = JSON.parse(movies_serialized)
+  @current_page += 1
 
-@results = movies["results"]
-@results.each do |result|
-  Movie.create(title: result["title"], overview: result["overview"], poster_url: "https://image.tmdb.org/t/p/original#{result["poster_path"]}", rating: result["vote_average"])
+  @results = movies["results"]
+  @results.each do |result|
+    Movie.create(title: result["title"], overview: result["overview"], poster_url: "https://image.tmdb.org/t/p/original#{result["poster_path"]}", rating: result["vote_average"])
+  end
 end
 
  #http://tmdb.lewagon.com/movie/top_rated?api_key=<your_api_key>
