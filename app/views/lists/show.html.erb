@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1574267432644-f410f8ec2474?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=center&w=1489&q=150)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, width: 3000, crop: :fill %>')">
   <div class = "container">
     <h1> <%= @list.name %> </h1>
   </div>
@@ -33,7 +33,7 @@
 
     <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.input :comment %>
-    <%= f.association :movie %>
+    <%= f.association :movie, input_html: { class: 'select2' } %>
     <%= f.submit 'Create bookmark', :class => 'btn btn-success' %>
     <% end %>
 

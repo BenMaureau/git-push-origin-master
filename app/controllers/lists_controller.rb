@@ -15,17 +15,18 @@ class ListsController < ApplicationController
   end
 
   def create
+    @lists = List.all
     @list = List.new(list_params)
     if @list.save
       redirect_to lists_path
     else
-      render :new
+      render 'index'
     end
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

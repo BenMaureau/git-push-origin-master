@@ -18,7 +18,11 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   // [...]
   initUpdateNavbarOnScroll();
-  loadDynamicBannerText();
+
+  if (document.querySelector('#home-banner')) {
+    loadDynamicBannerText();
+  }
+
   initSelect2();
 });
 

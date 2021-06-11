@@ -8,9 +8,11 @@
 require 'json'
 require 'open-uri'
 
+Movie.destroy_all
+
 @current_page = 1
-439.times do
-  url = "http://tmdb.lewagon.com/movie/popular?=#{@current_page.to_s}"
+5.times do
+  url = "http://tmdb.lewagon.com/movie/popular?page=#{@current_page}"
   movies_serialized = URI.open(url).read
   movies = JSON.parse(movies_serialized)
   @current_page += 1
